@@ -1,0 +1,17 @@
+.bt {
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    font-family: Arial;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px 10px;
+    border-radius: 10px;
+    border-color: #000000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.margin-left {
+    margin-left: 50px !important;
+}
