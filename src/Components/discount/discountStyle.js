@@ -4,9 +4,9 @@ import styled from 'styled-components';
 export const Cell = styled.div`
     background-color: #FEF5DA;
     padding: 20px;
-    height: 65px;
+    height: 70px;
     text-align: center;
-    width: 212px;
+    width: 150px;
     margin-top: 10px;
     
 `
@@ -14,7 +14,7 @@ export const Title = styled.div`
     background-color: orange;
     font-weight: bold;
     padding: 10px;
-    height: 60px;
+    height: 70px;
     text-align: center;
 `
 export const Row = styled.div`
@@ -28,8 +28,8 @@ export const Container = styled.div`
     grid-gap: 10px 0px;
     grid-template-columns: auto;
     background-color: #C4EBD8;
-    width: 1080px;
-    height: 600px;
+    width: 1070px;
+    height: 640px;
     margin: auto;
     margin-top: 20px;
     padding: 8px 10px;

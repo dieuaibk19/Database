@@ -2,7 +2,7 @@ const connection = require('../../db_config');
 
 module.exports = class ShopDisModel {
     static getAllDiscount = async () => {
-        const query = `SELECT * FROM SHOP_DIS_`;
+        const query = `CALL SHOW_SHOP_DISCOUNT`;
 
             return new Promise((resolve, reject) => {
                 connection.db.query(query, (err, results) => {
@@ -10,7 +10,6 @@ module.exports = class ShopDisModel {
                         console.log('Error');
                     }
                     else {
-                        console.log("hello");
                         resolve(results);
                 };
             })

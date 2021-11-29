@@ -6,18 +6,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import axios from 'axios';
 
 function OneRow(props){
-
+    const {DISCOUNT_CODE, DISCOUNT_VALUE, DISCOUNT_TYPE, VALID_DATE, EXPIRE_DATE, ID_SHOP, SHOP_DIS_TYPE} = props.info;
     function handleClick(){
       console.log('Click on 1 record')
     }
     return(
       <>
       <Row onClick = {handleClick}>
-        <Cell>abc</Cell>
-        <Cell>abc</Cell>
-        <Cell>abc</Cell>
-        <Cell>abc</Cell>
-        <Cell>abc</Cell>
+        <Cell>{DISCOUNT_CODE}</Cell>
+        <Cell>{DISCOUNT_VALUE}</Cell>
+        <Cell>{DISCOUNT_TYPE}</Cell>
+        <Cell>{VALID_DATE}</Cell>
+        <Cell>{EXPIRE_DATE}</Cell>
+        <Cell>{ID_SHOP}</Cell>
+        <Cell>{SHOP_DIS_TYPE}</Cell>
       </Row>
        {/* <PopUp trigger={PopUpState} setTrigger={setPopUpState} detail_data={detailData} />   */}
       </>
@@ -45,7 +47,7 @@ function Items({ currentItems }) {
     <div className="items" style={{width: '1000px'}}>
     {currentItems && currentItems.map((item) => (
       <div>
-        <OneRow />
+        <OneRow info={item}/>
       </div>
     ))}
       </div>
@@ -63,6 +65,9 @@ function ShopDiscount({ DiscountList, itemsPerPage }) {
     const endOffset = itemOffset + itemsPerPage;
     setCurrentItems(DiscountList.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(DiscountList.length / itemsPerPage));
+    console.log('List nhan o element');
+    console.log(DiscountList);
+    console.log(currentItems);
   }, [itemOffset, itemsPerPage]);
 
   const handlePageClick = (event) => {

@@ -1,11 +1,12 @@
 import ShopDisComponent from '../Components/discount/discountElement';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-const ShopDisList = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+import AddWindow from '../Components/discount/AddPopUp';
 export default function ShopDiscount() {
   //fetch data
-  //const [ShopDisList, setShopDisList] = useState([]);
+  const [ShopDisList, setShopDisList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [addTrigger, setAddTrigger] = useState(false);
 
   useEffect(async() => {
     fetchData();
@@ -14,19 +15,24 @@ export default function ShopDiscount() {
   const fetchData = () => {
     axios.get('http://localhost:5000/discount/shop')
     .then((results) => {
+      setShopDisList(results.data[0]);
       setLoading(false);
-      console.log(results);
+      console.log(results.data[0]);
     }).catch(e => {
       console.log(e);
     });
+  }
 
+  const openAddWindow = () => {
+    setAddTrigger(true);
   }
   
 
   return (
     loading ? (<h1> LOADING </h1>) : (<>
-      <button>ADD DISCOUNT</button>
+      <button onClick={openAddWindow}>ADD DISCOUNT</button>
       <ShopDisComponent DiscountList={ShopDisList} itemsPerPage={6} />
+      {addTrigger && <AddWindow trigger={addTrigger}/>}
     </>)
   );
 
