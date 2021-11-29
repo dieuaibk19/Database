@@ -5,7 +5,15 @@ import { Window, Content, ClosedBtn} from './AddPopUpStyle';
 function PopUp(props) {
     console.log('Shop has valid discount ');
     const ShopList = props.ShopList;
-    console.log(ShopList);
+    if (ShopList.length === 0) {
+        return <Window>
+        <Content>
+            <div>Không có shop nào</div>
+            <ClosedBtn onClick={() => props.setTrigger(false)}>Close</ClosedBtn>  
+        </Content>
+        </Window>
+    }
+
     return props.trigger ? (
         <Window>
             <Content>
