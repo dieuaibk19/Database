@@ -50,6 +50,24 @@ static getDiscountWithExpireDate = async (date) => {
 })
 }
 
+static getShopHasValidDiscount = async (num) => {
+    //validate dữ liệu 
+    const query = `CALL SHOP_HAS_VALID_DISCOUNT_GREATER_NUM(?)`;
+    return new Promise((resolve, reject) => {
+        connection.db.query(query,[num],
+            (err, results) => {
+            if (err) {
+                console.log('Error: ', err);
+            }
+            else {
+                resolve(results);
+        }
+    })
+})
+}
+
+
+
 
     // static updateDiscount = (id) => {}
     // static deleteDiscount = () => {}

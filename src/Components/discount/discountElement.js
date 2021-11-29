@@ -68,9 +68,6 @@ function ShopDiscount({ DiscountList, itemsPerPage }) {
     const endOffset = itemOffset + itemsPerPage;
     setCurrentItems(DiscountList.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(DiscountList.length / itemsPerPage));
-    console.log('List nhan o element');
-    console.log(DiscountList);
-    console.log(currentItems);
   }, [itemOffset, itemsPerPage]);
 
   const handlePageClick = (event) => {
