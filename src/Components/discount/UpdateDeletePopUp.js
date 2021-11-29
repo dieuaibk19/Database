@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { Window, Content, ClosedBtn} from './AddPopUpStyle';
 import MessageBox from './MessageBox';
 import axios from 'axios';
@@ -24,16 +24,12 @@ function PopUp(props) {
     const [messageBox, setMessageBox] = useState(false);
 
     const handleSubmit = () => {
-        //validate data
-        
         if (code === '' || value === '' || type === '' || validDate ==='' || expireDate === '' || shopID === '' || shopDisType === ''){
             console.log('Du lieu khong hop le');
             return;
           }
-        
-          
 
-          axios.post('http://localhost:5000/discount/shop', { 
+          axios.put('http://localhost:5000/discount/shop', { 
             code: code,
             value: value,
             type: type,

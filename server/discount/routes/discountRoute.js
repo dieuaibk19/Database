@@ -7,6 +7,8 @@ router.get("/shop",controller.get);
 
 router.post("/shop", controller.post);
 
+router.get("/shop/expire_date", controller.getDiscountWithExpireDate);
+
 // router.put("/shop", controller.put);
 
 // router.delete("/shop", controller.delete);

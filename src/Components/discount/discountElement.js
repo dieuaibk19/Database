@@ -2,13 +2,16 @@ import { Cell, Title, Row, Container } from './discountStyle';
 import ReactPaginate from 'react-paginate';
 import {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import UpdateDeleteWindow from './AddPopUp';
 // import './review.css';
 // import axios from 'axios';
 
 function OneRow(props){
+    const [trigger, setTrigger] = useState(false);
     const {DISCOUNT_CODE, DISCOUNT_VALUE, DISCOUNT_TYPE, VALID_DATE, EXPIRE_DATE, ID_SHOP, SHOP_DIS_TYPE} = props.info;
     function handleClick(){
-      console.log('Click on 1 record')
+      console.log('Click on 1 record');
+      setTrigger(true);
     }
     return(
       <>
@@ -21,7 +24,7 @@ function OneRow(props){
         <Cell>{ID_SHOP}</Cell>
         <Cell>{SHOP_DIS_TYPE}</Cell>
       </Row>
-       {/* <PopUp trigger={PopUpState} setTrigger={setPopUpState} detail_data={detailData} />   */}
+       {<UpdateDeleteWindow trigger={trigger}/>  }
       </>
     );
   }

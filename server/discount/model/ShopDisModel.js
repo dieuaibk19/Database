@@ -32,6 +32,25 @@ module.exports = class ShopDisModel {
         })
     })
 }
+
+static getDiscountWithExpireDate = async (date) => {
+    //validate dữ liệu 
+    const query = `CALL DISCOUNT_EQUAL_EXPIRE_DATE(?)`;
+
+    return new Promise((resolve, reject) => {
+        connection.db.query(query,[date],
+            (err, results) => {
+            if (err) {
+                console.log('Error: ', err);
+            }
+            else {
+                resolve(results);
+        }
+    })
+})
+}
+
+
     // static updateDiscount = (id) => {}
     // static deleteDiscount = () => {}
 };
