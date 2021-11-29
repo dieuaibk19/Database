@@ -94,15 +94,18 @@ export default function ShopDiscount() {
   
   return (
     loading ? (<h1> LOADING </h1>) : (<>
+    <div style={{display: 'flex', gap: '70px', justifyContent: 'center'}}>
     <div>
       <button onClick={openAddWindow}>ADD DISCOUNT</button>
     </div>
     <div>
+      <div style={{display: 'inline-block'}}>
       <DatePicker
             selected={selectedDate}
             onChange={(date) => handleChangeDate(date)}
             dateFormat='yyyy/MM/dd'
           />
+          </div>
       <button onClick={handleSearchExpDate}>SEARCH EXPIRE DATE</button>
     </div>
 
@@ -114,12 +117,8 @@ export default function ShopDiscount() {
       <input type='number' onChange={onChangeNum} value={num}/>
       <button onClick={handleShowShop}>SHOW SHOP HAS VALID DISCOUNT</button>
     </div>
-      {/* <input placeholder='expire date'></input>
-      <button>SEARCH DATE EXPIRE</button>
-      <input placeholder='type'></input>
-      <input placeholder='num'></input>
-      <button>SEARCH DISCOUNT</button>
-      <button>SHOW DISCOUNT EXPIRED TODAY</button> */}
+
+    </div>
       <ShopDisComponent DiscountList={ShopDisList} itemsPerPage={6} />
       {addTrigger && <AddWindow trigger={addTrigger} setTrigger={() => setAddTrigger(false)}/>}
       {showShopTrigger && <ShopValidDiscountWindow ShopList={validDisList} trigger={showShopTrigger} setTrigger={() => setShowShopTrigger(false)}/>}

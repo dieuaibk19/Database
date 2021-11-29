@@ -31,7 +31,6 @@ function PopUp(props) {
             return;
           }
         
-          
 
           axios.post('http://localhost:5000/discount/shop', { 
             code: code,

@@ -10,17 +10,23 @@ function PopUp(props) {
         <Window>
             <Content>
                 
-                <h1>Danh sách shop</h1>
+                <h1 style={{marginBottom: '40px'}}>Danh sách shop</h1>
+
+                <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)'}}>
+                    <div style={{fontWeight:'bold'}}> ID </div>
+                    <div style={{fontWeight:'bold'}}> NUM </div>
+                    </div>
             {
                 ShopList.map((item) => {
                     return (
-                    <div>
-                    <div> ID: {item.ID_SHOP}</div>
-                    <div> NUM: {item.DISCOUNT_NUM}</div>
+                    <div div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)'}}>
+                    <div> {item.ID_SHOP}</div>
+                    <div> {item.DISCOUNT_NUM}</div>
                     </div>
                     );
                 })
             }
+
                 <ClosedBtn onClick={() => props.setTrigger(false)}>Close</ClosedBtn>    
             </Content>    
 
