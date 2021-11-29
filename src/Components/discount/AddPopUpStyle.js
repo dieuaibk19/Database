@@ -16,7 +16,7 @@ export const Window = styled.div`
 export const Content = styled.div`
     position: relative;
     padding: 32px;
-    width: 350px;
+    width: 650px;
     border-radius: 10px;
     background-color: white;
     text-align: center;
@@ -29,4 +29,5 @@ export const ClosedBtn = styled.button`
     height: 40px;
     background-color: #ffdd00;
     border: none;
+    margin-left: 40px;
 `

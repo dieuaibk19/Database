@@ -31,8 +31,15 @@ export default function ShopDiscount() {
   return (
     loading ? (<h1> LOADING </h1>) : (<>
       <button onClick={openAddWindow}>ADD DISCOUNT</button>
+
+      {/* <input placeholder='expire date'></input>
+      <button>SEARCH DATE EXPIRE</button>
+      <input placeholder='type'></input>
+      <input placeholder='num'></input>
+      <button>SEARCH DISCOUNT</button>
+      <button>SHOW DISCOUNT EXPIRED TODAY</button> */}
       <ShopDisComponent DiscountList={ShopDisList} itemsPerPage={6} />
-      {addTrigger && <AddWindow trigger={addTrigger}/>}
+      {addTrigger && <AddWindow trigger={addTrigger} setTrigger={() => setAddTrigger(false)}/>}
     </>)
   );
 

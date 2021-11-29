@@ -7,7 +7,7 @@ module.exports = class ShopDisModel {
             return new Promise((resolve, reject) => {
                 connection.db.query(query, (err, results) => {
                     if (err) {
-                        console.log('Error');
+                        reject('Error: ', err);
                     }
                     else {
                         resolve(results);
@@ -15,11 +15,23 @@ module.exports = class ShopDisModel {
             })
         })
     }
-    // static addDiscount = (dis_code, dis_value, dis_type, dis_valid, dis_expire, dis_description, shopID, dis_shop_type) => {
-    //     //validate dữ liệu
-        
-    //     const query = `CALL SHOP_DIS_INSERT()`;
-    // }
+    static addDiscount = async (info) => {
+        //validate dữ liệu 
+        const query = `CALL SHOP_DIS_INSERT(?, ?, ?, ?, ?, 'none' ,?, ?)`;
+        const {code, value, type, validDate, expireDate, shopID, shopDisType} = info;
+
+        return new Promise((resolve, reject) => {
+            connection.db.query(query, [code, value, type, validDate, expireDate, shopID, shopDisType], 
+                (err, results) => {
+                if (err) {
+                    reject('Error: ', err);
+                }
+                else {
+                    resolve('Value is Inserted!');
+            }
+        })
+    })
+}
     // static updateDiscount = (id) => {}
     // static deleteDiscount = () => {}
 };

@@ -5,7 +5,7 @@ const controller = require('../controller/ShopDisController');
 
 router.get("/shop",controller.get);
 
-// router.post("/shop", controller.post);
+router.post("/shop", controller.post);
 
 // router.put("/shop", controller.put);
 

@@ -103,6 +103,8 @@ function ShopDiscount({ DiscountList, itemsPerPage }) {
       />
       </div>
       </Container>
+
+
     
     </>
   );

@@ -4,18 +4,18 @@ module.exports = {
     get: (req, res) => {
 
         ShopDisModel.getAllDiscount().then((result) => {
-            console.log(result);
-            console.log('Send data');
             res.status(200).send(result);
         });
         
     },
 
-    // post: async (req, res) => {
-    //     //validate dữ liệu
-    //     ShopDisModel.addDiscount();
-    //     res.send('Discount is added');
-    // },
+    post: async (req, res) => {
+        //validate dữ liệu
+        ShopDisModel.addDiscount(req.body)
+        .then((result) => {;
+            res.status(200).send(result);
+        });
+    },
     
     // put: async (req, res) => {
     //     ShopDisModel.updateDiscount();
