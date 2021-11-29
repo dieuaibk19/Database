@@ -17,11 +17,11 @@ module.exports = class ShopDisModel {
     }
     static addDiscount = async (info) => {
         //validate dữ liệu 
-        const query = `CALL SHOP_DIS_INSERT(?, ?, ?, ?, ?, 'none' ,?, ?)`;
-        const {code, value, type, validDate, expireDate, shopID, shopDisType} = info;
+        const query = `CALL SHOP_DIS_INSERT(?, ?, ?, ?, ?, ? ,?, ?)`;
+        const {code, value, type, validDate, expireDate, description,shopID, shopDisType} = info;
 
         return new Promise((resolve, reject) => {
-            connection.db.query(query, [code, value, type, validDate, expireDate, shopID, shopDisType], 
+            connection.db.query(query, [code, value, type, validDate, expireDate, description, shopID, shopDisType], 
                 (err, results) => {
                 if (err) {
                     reject('Error: ', err);
