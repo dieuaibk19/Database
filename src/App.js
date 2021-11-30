@@ -11,7 +11,6 @@ function App() {
           <div>
             <Header />
             <Navbar />
-            <h3 >Hiện thị nội dung các nút tại đây.</h3>
           </div>
 
           <Routes>

@@ -94,7 +94,7 @@ export default function ShopDiscount() {
   
   return (
     loading ? (<h1> LOADING </h1>) : (<>
-    <div style={{display: 'flex', gap: '50px', justifyContent: 'center', marginBottom:'60px'}}>
+    <div style={{display: 'flex', gap: '50px', justifyContent: 'center', marginBottom:'60px', marginTop:'80px'}}>
 
     <div>
       <div style={{display: 'inline-block'}}>
