@@ -20,15 +20,17 @@ function PopUp(props) {
                 
                 <h1 style={{marginBottom: '40px'}}>Danh sách shop</h1>
 
-                <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)'}}>
-                    <div style={{fontWeight:'bold'}}> ID </div>
-                    <div style={{fontWeight:'bold'}}> NUM </div>
+                <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)'}}>
+                    <div style={{fontWeight:'bold'}}> ID Shop </div>
+                    <div style={{fontWeight:'bold'}}> Tên Shop</div>
+                    <div style={{fontWeight:'bold'}}> Số Lượng </div>
                     </div>
             {
                 ShopList.map((item) => {
                     return (
-                    <div div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)'}}>
+                    <div div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)'}}>
                     <div> {item.ID_SHOP}</div>
+                    <div> {item.NAME_SHOP}</div>
                     <div> {item.DISCOUNT_NUM}</div>
                     </div>
                     );

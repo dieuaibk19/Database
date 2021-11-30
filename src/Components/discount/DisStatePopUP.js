@@ -8,7 +8,9 @@ function PopUp(props) {
         <Window>
             <Content>
                 
-                <div>Đã thêm vào thành công</div>
+                <h1 style={{marginBottom: '40px'}}>Trạng thái mã giảm giá</h1>
+                <p> {props.DisState}</p>
+
                 <ClosedBtn onClick={() => props.setTrigger(false)}>OK</ClosedBtn>    
             </Content>    
 

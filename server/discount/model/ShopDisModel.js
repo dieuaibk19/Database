@@ -27,7 +27,7 @@ module.exports = class ShopDisModel {
                     reject('Error: ', err);
                 }
                 else {
-                    resolve('Value is Inserted!');
+                    resolve(results);
             }
         })
     })
@@ -66,9 +66,19 @@ static getShopHasValidDiscount = async (num) => {
 })
 }
 
-
-
-
-    // static updateDiscount = (id) => {}
-    // static deleteDiscount = () => {}
+static getDiscountState = async (code) => {
+    //validate dữ liệu 
+    const query = `SELECT DISCOUNT_STATE(?) AS DISCOUNT_STATE `;
+    return new Promise((resolve, reject) => {
+        connection.db.query(query,[code],
+            (err, results) => {
+            if (err) {
+                console.log('Error: ', err);
+            }
+            else {
+                resolve(results);
+        }
+    })
+})
+}
 };

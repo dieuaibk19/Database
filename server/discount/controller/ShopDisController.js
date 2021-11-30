@@ -30,13 +30,11 @@ module.exports = {
         });
         
     },
-    // put: async (req, res) => {
-    //     ShopDisModel.updateDiscount();
-    //     res.send(result);
-    // },
 
-    // delete: async (req, res) => {
-    //     ShopDisModel.delete();
-    //     res.send(result);
-    // }
+    getDiscountState : (req, res) => {
+        ShopDisModel.getDiscountState(req.query.code).then((result) => {
+            res.status(200).send(result);
+        });
+        
+    },
 }
