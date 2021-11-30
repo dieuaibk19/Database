@@ -94,10 +94,8 @@ export default function ShopDiscount() {
   
   return (
     loading ? (<h1> LOADING </h1>) : (<>
-    <div style={{display: 'flex', gap: '70px', justifyContent: 'center'}}>
-    <div>
-      <button onClick={openAddWindow}>ADD DISCOUNT</button>
-    </div>
+    <div style={{display: 'flex', gap: '50px', justifyContent: 'center', marginBottom:'60px'}}>
+
     <div>
       <div style={{display: 'inline-block'}}>
       <DatePicker
@@ -109,13 +107,23 @@ export default function ShopDiscount() {
       <button onClick={handleSearchExpDate}>SEARCH EXPIRE DATE</button>
     </div>
 
-    <div>
-      <button onClick={handleShowAll}>SHOW ALL</button>
-    </div>
 
     <div>
       <input type='number' onChange={onChangeNum} value={num}/>
       <button onClick={handleShowShop}>SHOW SHOP HAS VALID DISCOUNT</button>
+    </div>
+
+    <div>
+      <input type='text' onChange={onChangeNum}/>
+      <button onClick={handleShowShop}>SHOW DISCOUNT STATE</button>
+    </div>
+
+    <div>
+      <button onClick={openAddWindow}>ADD DISCOUNT</button>
+    </div>
+
+    <div>
+      <button onClick={handleShowAll}>SHOW ALL</button>
     </div>
 
     </div>

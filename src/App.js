@@ -16,7 +16,6 @@ function App() {
 
           <Routes>
           <Route path="/discount/shop_discount" element={<ShopDiscount/>} />
-          {/* <Route path="/discount/system_discount" element={<Home/>} /> */}
           </Routes>
           
       </Router>
