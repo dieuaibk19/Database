@@ -11,12 +11,10 @@ function App() {
           <div>
             <Header />
             <Navbar />
-            <h3 >Hiện thị nội dung các nút tại đây.</h3>
           </div>
 
           <Routes>
           <Route path="/discount/shop_discount" element={<ShopDiscount/>} />
-          {/* <Route path="/discount/system_discount" element={<Home/>} /> */}
           </Routes>
           
       </Router>

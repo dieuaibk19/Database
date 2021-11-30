@@ -18,19 +18,23 @@ module.exports = {
     },
     
     getDiscountWithExpireDate: (req, res) => {
-        console.log(req.query.date);
         ShopDisModel.getDiscountWithExpireDate(req.query.date).then((result) => {
             res.status(200).send(result);
         });
         
     },
-    // put: async (req, res) => {
-    //     ShopDisModel.updateDiscount();
-    //     res.send(result);
-    // },
 
-    // delete: async (req, res) => {
-    //     ShopDisModel.delete();
-    //     res.send(result);
-    // }
+    getShopHasValidDiscount : (req, res) => {
+        ShopDisModel.getShopHasValidDiscount(req.query.num).then((result) => {
+            res.status(200).send(result);
+        });
+        
+    },
+
+    getDiscountState : (req, res) => {
+        ShopDisModel.getDiscountState(req.query.code).then((result) => {
+            res.status(200).send(result);
+        });
+        
+    },
 }

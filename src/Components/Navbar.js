@@ -12,7 +12,7 @@ export default function Navbar (props) {
             PRODUCT
           </button>
           <button type="button" class="bt margin-left" >
-            DISCOUNT
+            <a style={{textDecoration: 'none', color: 'black'}} href='http://localhost:3000/discount/shop_discount'> DISCOUNT </a>
           </button>
             
           <button type="button" class="bt margin-left">

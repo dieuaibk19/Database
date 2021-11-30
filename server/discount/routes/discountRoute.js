@@ -7,10 +7,14 @@ router.get("/shop",controller.get);
 
 router.post("/shop", controller.post);
 
+// get discount có ngày expire = expire date
 router.get("/shop/expire_date", controller.getDiscountWithExpireDate);
 
-// router.put("/shop", controller.put);
+// get những shop có số discount valid lớn hơn n
+router.get("/shop/shop_valid_date", controller.getShopHasValidDiscount);
 
-// router.delete("/shop", controller.delete);
+// get trạng thái của mã giảm giá
+router.get("/shop/discount_state", controller.getDiscountState);
+
 
 module.exports = router;
