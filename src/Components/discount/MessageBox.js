@@ -8,7 +8,8 @@ function PopUp(props) {
         <Window>
             <Content>
                 
-                <div>Đã thêm vào thành công</div>
+                {!props.message && <div>Đã thêm vào thành công</div>}
+                <div>{props.message}</div>
                 <ClosedBtn onClick={() => props.setTrigger(false)}>OK</ClosedBtn>    
             </Content>    
 
