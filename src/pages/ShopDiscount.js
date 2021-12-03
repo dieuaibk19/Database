@@ -8,7 +8,6 @@ import DisStateWindow from '../Components/discount/DisStatePopUP';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-
 export default function ShopDiscount() {
   //fetch data
   const [ShopDisList, setShopDisList] = useState([]);
