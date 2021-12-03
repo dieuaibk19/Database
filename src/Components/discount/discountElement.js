@@ -2,20 +2,13 @@ import { Cell, Title, Row, Container } from './discountStyle';
 import ReactPaginate from 'react-paginate';
 import {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import UpdateDeleteWindow from './AddPopUp';
-// import './review.css';
-// import axios from 'axios';
 
 function OneRow(props){
-    const [trigger, setTrigger] = useState(false);
     const {DISCOUNT_CODE, DISCOUNT_VALUE, DISCOUNT_TYPE, VALID_DATE, EXPIRE_DATE, ID_SHOP, SHOP_DIS_TYPE} = props.info;
-    function handleClick(){
-      console.log('Click on 1 record');
-      setTrigger(true);
-    }
+
     return(
       <>
-      <Row onClick = {handleClick}>
+      <Row>
         <Cell>{DISCOUNT_CODE}</Cell>
         <Cell>{DISCOUNT_VALUE}</Cell>
         <Cell>{DISCOUNT_TYPE}</Cell>
@@ -24,7 +17,6 @@ function OneRow(props){
         <Cell>{ID_SHOP}</Cell>
         <Cell>{SHOP_DIS_TYPE}</Cell>
       </Row>
-       {<UpdateDeleteWindow trigger={trigger}/>  }
       </>
     );
   }
@@ -42,8 +34,6 @@ function OneRow(props){
       </Row>
     );
   }
-
-
 
 function Items({ currentItems }) {
   return (
@@ -103,9 +93,6 @@ function ShopDiscount({ DiscountList, itemsPerPage }) {
       />
       </div>
       </Container>
-
-
-    
     </>
   );
 }
