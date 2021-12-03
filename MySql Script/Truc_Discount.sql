@@ -49,14 +49,14 @@ BEGIN
 		SET MESSAGE_TEXT  = "Value of discount need to be greater than 0";
 	END IF;
 
-    -- Handle discount_value <= 100 if discount_type = voucher
+    -- Handle discount_value > 100 if discount_type = coupon
 	IF (dis_type = 'Coupon' AND dis_value > 100) THEN 
 		SELECT "Value of Coupon can't be greater than 100 !" As ERROR_MESSAGE;
 		SIGNAL SQLSTATE '45000'
 		SET MESSAGE_TEXT  = "value of Coupon can't be greater than 100";
 	END IF;
     
-    -- Handle valid date <= expire date 
+    -- Handle valid date > expire date 
     	IF (dis_valid > dis_expire) THEN 
 		SELECT "Valide date need to be earlier or the same date as the expire date !" As ERROR_MESSAGE;
 		SIGNAL SQLSTATE '45000'
@@ -118,9 +118,9 @@ BEGIN
 END //
 DELIMITER ;
 
- CALL SHOP_DIS_INSERT ('DIS000035', '5', 'Voucher', '2021-2-2', '2021-12-30', 'Áp dụng cho đơn hàng 50K', 'SHP000002', 'Subscribed');
- DELETE FROM SHOP_DIS_ WHERE DISCOUNT_CODE IN ('DIS000031', 'DIS000032', 'DIS000033', 'DIS000034') ;
- SELECT * FROM SHOP_DIS_;
+ -- CALL SHOP_DIS_INSERT ('DIS000035', '5', 'Voucher', '2021-2-2', '2021-12-30', 'Áp dụng cho đơn hàng 50K', 'SHP000002', 'Subscribed');
+ -- DELETE FROM SHOP_DIS_ WHERE DISCOUNT_CODE IN ('DIS000031', 'DIS000032', 'DIS000033', 'DIS000034') ;
+ -- SELECT * FROM SHOP_DIS_;
 -- SELECT * FROM DISCOUNT_ AS D,SHOP_DIS_ AS S WHERE D.DISCOUNT_CODE = S.DISCOUNT_CODE;
 
 /* ======================================= CAU 2 ========================================== */
@@ -215,9 +215,9 @@ DELIMITER ;
 /* ======================================= CAU 4 ========================================== */
 
 -- Nhập vào code discount, kiểm tra ngày hiện tại so với valide date và expire date
--- Ngày hiện tại < validate : 'Chưa đến hạn áp dụng'
--- Ngày hiện tại > expire date : 'Hết hạn sử dụng'
--- Ngày hiện tại - expire date : 'Sắp hết hạn, hạn sử dụng còn x ngày'
+-- Ngày hiện tại < validate : 'Mã vẫn chưa có hiệu lực'
+-- Ngày hiện tại > expire date : 'Mã không còn hiệu lực'
+-- Ngày hiện tại - expire date : 'Mã còn hiệu lực x ngày'
 
 DROP FUNCTION IF EXISTS DISCOUNT_STATE ;
 DELIMITER //
@@ -247,9 +247,7 @@ BEGIN
 		SET state = "Mã vẫn chưa có hiệu lực";
 	ELSEIF cur_date > exp_date THEN
 		SET state = "Mã không còn hiệu lực";
-    ELSEIF (cur_date > exp_date) THEN
-        SET state = "Mã đã hết hiệu lực";
-    ELSE
+	ELSE
         SET state = concat("Mã còn hiệu lực ", exp_date - cur_date + 1 , " ngày");
     END IF;
     
